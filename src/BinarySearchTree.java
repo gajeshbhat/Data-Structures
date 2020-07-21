@@ -1,30 +1,16 @@
 import java.util.LinkedList;
 
-
-public class BinarySearchTree< T extends Comparable<T>> {
-    int treeSize;
-    public Node<T> rootNode = null;
-
+public class BinarySearchTree implements IBinarySearchTree{
+    
+    private BinaryTree binaryTreeRoot;
+    
     public BinarySearchTree(T data){
-        rootNode = new Node<>(data);
+        binaryTreeRoot = new BinaryTree(data);
     }
 
-    public class Node<T>{
-        T data;
-        Node<T> left;
-        Node<T> right;
-
-        public Node(T data){
-            this.data = data;
-            this.left = null;
-            this.right= null;
-        }
-    }
-
-    void insertNode(T data){
-        // No duplicate insertions allowed
+    public void insert(T data){
         if(containsKey(data)) throw new IllegalArgumentException("Element already exists in the Tree. No Duplicates allowed.");
-        Node<T> traverseNode = rootNode;
+        BinaryTree traverseNode = binaryTreeRoot;
 
         while((traverseNode.left != null) || (traverseNode.right != null)){
             if(lessThan(data,traverseNode.data)){
@@ -95,12 +81,12 @@ public class BinarySearchTree< T extends Comparable<T>> {
         else removeFullSubtree(traverseNode.right);
     }
 
-    Node<T> getLeftMostNode(Node<T> startNode){
+    private Node<T> getLeftMostNode(Node<T> startNode){
         while(startNode.left != null) startNode = startNode.left;
         return startNode;
     }
 
-    Node<T> getRightMostNode(Node<T> startNode){
+    private Node<T> getRightMostNode(Node<T> startNode){
         while(startNode.right != null) startNode = startNode.right;
         return startNode;
     }
@@ -153,7 +139,7 @@ public class BinarySearchTree< T extends Comparable<T>> {
         }
     }
 
-    // helpers
+    // Helpers
 
     public boolean lessThan(T aValue, T bValue){
         // Duplicate insertions not supported
@@ -173,7 +159,8 @@ public class BinarySearchTree< T extends Comparable<T>> {
                 traverseNode = traverseNode.right;
             }
         }
-        /* O(n) Always case if checked during every insertion. */
+        /* O(logn) Always case if checked during every insertion. 
+        * */
         return false;
     }
 
