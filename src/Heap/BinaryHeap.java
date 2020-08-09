@@ -1,3 +1,5 @@
+package Heap;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -52,7 +54,7 @@ abstract class BinaryHeap<T extends Comparable<T>> implements Iterable<T> {
         return  removedElement;
     }
 
-    // Will be Implemented by Respective Min or Max Heap classe
+    // Will be Implemented by Respective Min or Max Heap classes
     protected abstract void bubbleUp(int i);
 
     private void bubbleDown(int index){

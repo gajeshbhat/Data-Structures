@@ -1,3 +1,5 @@
+package Heap;
+
 public class BinaryMaxHeap extends  BinaryHeap{
     public BinaryMaxHeap(){
         super();

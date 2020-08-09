@@ -1,3 +1,5 @@
+package Heap;
+
 public class BinaryMinHeap extends BinaryHeap{
 
     public BinaryMinHeap(){

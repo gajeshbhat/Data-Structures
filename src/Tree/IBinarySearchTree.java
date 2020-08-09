@@ -1,3 +1,5 @@
+package Tree;
+
 public interface IBinarySearchTree < T extends Comparable<T>> {
     public void insert(T data);
     public void remove(T data);

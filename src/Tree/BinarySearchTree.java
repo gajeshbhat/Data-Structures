@@ -1,6 +1,8 @@
+package Tree;
+
 import java.util.LinkedList;
 
-public class BinarySearchTree implements IBinarySearchTree{
+public class BinarySearchTree implements IBinarySearchTree {
     
     private BinaryTree binaryTreeRoot;
     
@@ -73,11 +75,11 @@ public class BinarySearchTree implements IBinarySearchTree{
             else traverseNode = traverseNode.right;
         }
 
-        // 1. If Node is a left
+        // 1. If Tree.Node is a left
         if(traverseNode.left == null && traverseNode.right == null) removeLeaf(data);
             // 2. If only one of the subtrees is null
         else if (traverseNode.left == null || traverseNode.right == null) removeHalfSubtree(data);
-            // 3. If the Node has both the subtrees
+            // 3. If the Tree.Node has both the subtrees
         else removeFullSubtree(traverseNode.right);
     }
 
@@ -121,7 +123,7 @@ public class BinarySearchTree implements IBinarySearchTree{
     }
 
     void levelOrderTraverseIterative(){
-        if(rootNode == null) throw new NullPointerException("Root Node is Null! Tree empty.");
+        if(rootNode == null) throw new NullPointerException("Root Tree.Node is Null! Tree empty.");
 
         LinkedList<Node<T>> levelQueue = new LinkedList<>();
         levelQueue.addLast(rootNode);
@@ -184,5 +186,45 @@ public class BinarySearchTree implements IBinarySearchTree{
         // Removing Full subtree
         testBST.removeNode(20);
         testBST.levelOrderTraverseIterative();
+    }
+
+    @Override
+    public void insert(Comparable data) {
+        this.insert(data);
+    }
+
+    @Override
+    public void remove(Comparable data) {
+        this.removeNode(data);
+    }
+
+    @Override
+    public boolean containsKey(Comparable data) {
+        this.containsKey(data);
+    }
+
+    @Override
+    public int height() {
+        return 0;
+    }
+
+    @Override
+    public void printPreorder() {
+
+    }
+
+    @Override
+    public void printInorder() {
+
+    }
+
+    @Override
+    public void printPostOrder() {
+
+    }
+
+    @Override
+    public void printLevelOrder() {
+
     }
 }

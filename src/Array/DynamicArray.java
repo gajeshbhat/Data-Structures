@@ -1,3 +1,5 @@
+package Array;
+
 public class DynamicArray <T> {
 
     private T[] dynamicArray;

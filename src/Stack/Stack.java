@@ -1,3 +1,5 @@
+package Stack;
+
 import java.util.EmptyStackException;
 import java.util.LinkedList;
 
@@ -7,7 +9,7 @@ public class Stack <T> {
     // Create an empty stack
     public Stack() {}
 
-    // Stack with one element.
+    // Stack.Stack with one element.
     public Stack(T firstElement){
         stackList.addLast(firstElement);
     }
